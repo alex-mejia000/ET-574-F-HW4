@@ -12,12 +12,23 @@ class Die:
             return random.randint(1, self.s)
        
 
-Class DiceGame:
-    def__init_(self):
-self.die1 = Die()
-self.die2 = Die()
+class DiceGame:
+    def __init__(self):
+        self.die1 = Die()
+        self.die2 = Die()
 
-    def play_round(self):
+def play_round(self):
         roll1 = self.die1.roll()
         roll2 = self.die2.roll()
-        
+        total = roll1 + roll2
+        result = self.evaluate_roll(total)
+        return {
+            "die1": roll1,
+            "die2": roll2,
+            "total": total,
+            "result": result
+        }
+    def evaluate_roll(self, total):
+        if total in [7, 11]:
+            return "Win"
+        elif total in [2,3,12]
